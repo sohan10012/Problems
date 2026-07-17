@@ -4,26 +4,25 @@ public:
 
         vector<vector<int>> ans;
 
-        sort(intervals.begin(), intervals.end());
+        sort(intervals.begin(),intervals.end());
 
-        vector<int> current = intervals[0];
+        vector<int> cur = intervals[0];
 
-        for(int i = 1; i < intervals.size(); i++) {
+        for(int i = 1 ; i < intervals.size() ; i++){
 
-            if(intervals[i][0] <= current[1]) {
-
-                current[1] = max(current[1], intervals[i][1]);
+            if(cur[1] >= intervals[i][0]){
+                cur[1] = max(cur[1],intervals[i][1]);
+            }
+            else{
+                ans.push_back(cur);
+                cur = intervals[i];
             }
 
-            else {
-
-                ans.push_back(current);
-
-                current = intervals[i];
-            }
         }
-        ans.push_back(current);
+
+        ans.push_back(cur);
 
         return ans;
+
     }
 };
