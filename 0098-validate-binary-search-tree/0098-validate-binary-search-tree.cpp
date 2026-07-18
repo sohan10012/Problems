@@ -11,6 +11,7 @@ public:
 
         return dfs(root->left, low, root->val) &&
                dfs(root->right, root->val, high);
+
     }
 
     bool isValidBST(TreeNode* root) {
