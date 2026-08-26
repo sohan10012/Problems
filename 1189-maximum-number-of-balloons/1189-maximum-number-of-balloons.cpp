@@ -8,21 +8,14 @@ public:
             mp[c]++;
         }
 
-        string word = "balloon";
-        int count = 0;
+        int ans = INT_MAX;
 
-        while(true) {
+        ans = min(ans, mp['b']);
+        ans = min(ans, mp['a']);
+        ans = min(ans, mp['l'] / 2);
+        ans = min(ans, mp['o'] / 2);
+        ans = min(ans, mp['n']);
 
-            for(char w : word) {
-
-                if(mp[w] == 0) {
-                    return count;
-                }
-
-                mp[w]--;
-            }
-
-            count++;
-        }
+        return ans;
     }
 };
